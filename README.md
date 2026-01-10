@@ -22,7 +22,7 @@ Please make sure to checkout this branch to review the full implementation, incl
 
 The `main` branch is intentionally kept clean and represents the baseline before merging the solution, following a standard Git workflow.
 
-The implementation is currently proposed via an open `Pull Request` for review.
+The implementation is currently proposed via `an open Pull Request` for review.
 
 ---
 
@@ -56,8 +56,8 @@ GET `/prices/applicable`
 | brandId | Long | Yes | Brand identifier |
 
 **Example request**
-```
-curl "http://localhost:8080/prices/applicable?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
+```bash
+  curl "http://localhost:8080/prices/applicable?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
 ```
 
 **Example response**
