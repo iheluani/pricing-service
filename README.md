@@ -170,6 +170,9 @@ PriceRepositoryAdapter (JPA)
 ▼
 H2 / Database
 ```
+
+---
+
 ## Architecture Overview
 
 The solution follows a hexagonal / clean architecture approach.
