@@ -137,11 +137,7 @@ Integration tests validate the endpoint end-to-end using:
 
 ---
 
-## Architecture Overview
-
-The solution follows a hexagonal / clean architecture approach.
-
-## Architecture (Hexagonal)
+## Architecture Diagram
 
 ```text
 (IN) Adapters / Delivery
@@ -174,6 +170,9 @@ PriceRepositoryAdapter (JPA)
 ▼
 H2 / Database
 ```
+## Architecture Overview
+
+The solution follows a hexagonal / clean architecture approach.
 
 #### Layers:
 
