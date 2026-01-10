@@ -57,7 +57,7 @@ GET `/prices/applicable`
 
 **Example request**
 ```bash
-  curl "http://localhost:8080/prices/applicable?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
+curl "http://localhost:8080/prices/applicable?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
 ```
 
 **Example response**
@@ -97,7 +97,7 @@ This project uses an H2 in-memory database to simplify execution and ensure dete
 
 **H2 Console**
 ```bash 
-  http://localhost:8080/h2-console
+http://localhost:8080/h2-console
 ```
 
 **Connection details**
@@ -140,6 +140,40 @@ Integration tests validate the endpoint end-to-end using:
 ## Architecture Overview
 
 The solution follows a hexagonal / clean architecture approach.
+
+## Architecture (Hexagonal)
+
+```text
+(IN) Adapters / Delivery
+────────────────────────────────────
+HTTP
+│
+▼
+PriceController (REST)
+└─ PriceResponseDto
+│
+│ calls (Port In)
+▼
+Application / Use Case
+────────────────────────────────────
+GetApplicablePriceService
+│
+│ depends on abstraction (Port Out)
+▼
+PriceRepositoryPort (interface)
+│
+│ implemented by
+▼
+(OUT) Adapters / Infrastructure
+────────────────────────────────────
+PriceRepositoryAdapter (JPA)
+├─ SpringDataPriceRepository
+└─ PriceJpaEntity
+│
+│ queries
+▼
+H2 / Database
+```
 
 #### Layers:
 
