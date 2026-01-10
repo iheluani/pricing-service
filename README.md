@@ -22,6 +22,8 @@ Please make sure to checkout this branch to review the full implementation, incl
 
 The `main` branch is intentionally kept clean and represents the baseline before merging the solution, following a standard Git workflow.
 
+The implementation is currently proposed via an open `Pull Request` for review.
+
 ---
 
 ## Business Context
