@@ -18,6 +18,7 @@ public class BeanConfig {
 
     @Bean
     public GetApplicablePriceQuery getApplicablePriceQuery(PriceRepositoryPort priceRepositoryPort) {
-        return new GetApplicablePriceService(priceRepositoryPort);
+        GetApplicablePriceQuery base = new GetApplicablePriceService(priceRepositoryPort);
+        return new CachedGetApplicablePriceQuery(base);
     }
 }
