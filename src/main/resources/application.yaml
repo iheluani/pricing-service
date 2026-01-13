@@ -5,6 +5,12 @@ logging:
   level:
     org.springframework.boot.autoconfigure: INFO
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+
 spring:
   application:
     name: pricing-service

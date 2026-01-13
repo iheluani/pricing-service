@@ -216,6 +216,26 @@ The repository limits the result to one element to avoid non-unique result issue
 
 ---
 
+## Extras
+
+- In-memory caching has been added for the applicable price resolution to avoid repeated computations.
+- Spring Boot Actuator has been included to expose basic health and metrics endpoints.
+
+### Actuator endpoints
+
+The following endpoints can be used to verify the application status and basic metrics:
+
+- Health check:  
+  `http://localhost:8080/actuator/health`
+
+- Metrics overview:  
+  `http://localhost:8080/actuator/metrics`
+
+- Metrics detailed overview:  
+  `http://localhost:8080/actuator/metrics/http.server.requests`
+
+---
+
 ## Notes
 
 - Dates are returned as ISO-8601 strings for API stability and clarity
