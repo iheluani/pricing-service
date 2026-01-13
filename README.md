@@ -220,6 +220,8 @@ The repository limits the result to one element to avoid non-unique result issue
 
 - In-memory caching has been added for the applicable price resolution to avoid repeated computations.
 - Spring Boot Actuator has been included to expose basic health and metrics endpoints.
+- The API also supports HTTP caching via `Cache-Control` and `ETag` headers.
+
 
 ### Actuator endpoints
 
@@ -233,6 +235,17 @@ The following endpoints can be used to verify the application status and basic m
 
 - Metrics detailed overview:  
   `http://localhost:8080/actuator/metrics/http.server.requests`
+
+### HTTP caching
+
+The `GET /prices` endpoint includes `Cache-Control` and `ETag` headers. Clients can use `If-None-Match` to receive a `304 Not Modified` response when the resource has not changed.
+
+Example:
+
+```bash
+curl -i "http://localhost:8080/prices?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
+curl -i -H 'If-None-Match: "<etag-from-first-response>"' "http://localhost:8080/prices?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
+```
 
 ---
 
