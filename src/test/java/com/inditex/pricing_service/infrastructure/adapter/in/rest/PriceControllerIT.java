@@ -21,7 +21,7 @@ class PriceControllerIT {
     private MockMvc mockMvc;
 
     // -------------------------
-    // 5 IT cases
+    // 200: 5 IT cases
     // Product: 35455, Brand: 1
     // -------------------------
 
