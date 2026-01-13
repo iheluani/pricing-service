@@ -1,6 +1,7 @@
 package com.inditex.pricing_service.infrastructure.adapter.in.rest;
 
 import com.inditex.pricing_service.domain.exception.PriceNotFoundException;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -26,7 +27,8 @@ public class RestExceptionHandler {
 
     @ExceptionHandler({
             MethodArgumentTypeMismatchException.class,
-            MissingServletRequestParameterException.class
+            MissingServletRequestParameterException.class,
+            ConstraintViolationException.class
     })
     public ResponseEntity<Map<String, Object>> handleBadRequest(Exception ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of(

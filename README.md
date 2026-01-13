@@ -45,7 +45,7 @@ The service returns the price that:
 ### Get applicable price
 
 **Endpoint**:
-GET `/prices/applicable`
+GET `/prices`
 
 **Query parameters**
 
@@ -57,7 +57,7 @@ GET `/prices/applicable`
 
 **Example request**
 ```bash
-curl "http://localhost:8080/prices/applicable?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
+curl "http://localhost:8080/prices?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1"
 ```
 
 **Example response**
