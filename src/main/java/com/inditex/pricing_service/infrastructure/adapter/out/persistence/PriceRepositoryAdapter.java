@@ -2,7 +2,6 @@ package com.inditex.pricing_service.infrastructure.adapter.out.persistence;
 
 import com.inditex.pricing_service.application.port.out.PriceRepositoryPort;
 import com.inditex.pricing_service.domain.model.Price;
-import org.springframework.data.domain.PageRequest;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -18,9 +17,12 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
     @Override
     public Optional<Price> findApplicablePrice(LocalDateTime applicationDate, long productId, long brandId) {
         return springDataPriceRepository
-                .findApplicablePrices(brandId, productId, applicationDate, PageRequest.of(0, 1))
-                .stream()
-                .findFirst()
+                .findFirstByBrandIdAndProductIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDescStartDateDesc(
+                        brandId,
+                        productId,
+                        applicationDate,
+                        applicationDate
+                )
                 .map(this::toDomain);
     }
 

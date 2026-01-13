@@ -6,12 +6,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Index;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "prices")
+@Table(
+        name = "prices",
+        indexes = {
+                @Index(
+                        name = "idx_prices_lookup",
+                        columnList = "brand_id, product_id, start_date, end_date, priority"
+                )
+        }
+)
 public class PriceJpaEntity {
 
     @Id
